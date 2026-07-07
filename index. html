@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSLAN MD V1 - PAIRING SYSTEM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
+        
+        body { 
+            background: #000; 
+            color: #fff; 
+            min-height: 100vh; 
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,0,255,0.1) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 2px solid #00ffff;
+        }
+        .logo { font-size: 24px; font-weight: 900; color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        .vip-badge { 
+            background: linear-gradient(45deg, #FFD700, #FFA500); 
+            color: #000; 
+            padding: 5px 15px; 
+            border-radius: 5px; 
+            font-weight: 700;
+            box-shadow: 0 0 15px #FFD700;
+        }
+        
+        .status-bar {
+            display: flex;
+            gap: 30px;
+            padding: 10px 20px;
+            background: rgba(138,43,226,0.1);
+            border-bottom: 1px solid #8A2BE2;
+            font-size: 14px;
+        }
+        .status-item { color: #00ffff; }
+        .dot { display: inline-block; width: 8px; height: 8px; background: #00ff00; border-radius: 50%; margin-right: 5px; box-shadow: 0 0 10px #00ff00; }
+        
+        .servers {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        .server-btn {
+            background: #111;
+            border: 1px solid #333;
+            color: #aaa;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .server-btn.active {
+            background: linear-gradient(45deg, #00ffff, #0088ff);
+            border-color: #00ffff;
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        
+        .main-panel {
+            margin: 20px;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: linear-gradient(90deg, #8A2BE2, #00ffff);
+            border-radius: 13px 13px 0 0;
+            color: #000;
+            font-weight: 700;
+        }
+        
+        .panel-body { padding: 30px; text-align: center; }
+        .brand-name { 
+            font-size: 48px; 
+            font-weight: 900; 
+            letter-spacing: 5px; 
+            color: #fff; 
+            text-shadow: 0 0 20px #00ffff;
+            margin-bottom: 10px;
+        }
+        .core-status { color: #00ff00; font-size: 14px; }
+        
+        .input-box {
+            background: #000;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 0 20px rgba(0,255,255,0.5) inset;
+        }
+        .input-box input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #00ffff;
+            font-size: 18px;
+            text-align: center;
+            outline: none;
+        }
+        .input-box input::placeholder { color: #555; }
+        
+        .decode-btn {
+            width: 100%;
+            padding: 20px;
+            background: #000;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0,255,255,0.5);
+        }
+        .decode-btn:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 40px #00ffff;
+        }
+        
+        #code { margin-top: 20px; font-size: 28px; color: #00ff00; font-weight: 900; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">ARSLAN MD V1</div>
+        <div class="vip-badge">PREMIUM VIP</div>
+    </div>
+    
+    <div class="status-bar">
+        <div class="status-item"><span class="dot"></span> SYSTEM: ONLINE</div>
+        <div class="status-item">NODES: 25</div>
+        <div class="status-item">VIP ACCESS</div>
+    </div>
+    
+    <div class="servers">
+        <div class="server-btn active">SVR_1</div>
+        <div class="server-btn">SVR_2</div>
+        <div class="server-btn">SVR_3</div>
+        <div class="server-btn">SVR_4</div>
+        <div class="server-btn">SVR_5</div>
+        <div class="server-btn">SVR_6</div>
+        <div class="server-btn">SVR_7</div>
+        <div class="server-btn">SVR_8</div>
+        <div class="server-btn">SVR_9</div>
+        <div class="server-btn">SVR_10</div>
+        <div class="server-btn">SVR_11</div>
+        <div class="server-btn">SVR_12</div>
+        <div class="server-btn">SVR_13</div>
+        <div class="server-btn">SVR_14</div>
+        <div class="server-btn">SVR_15</div>
+    </div>
+    
+    <div class="main-panel">
+        <div class="panel-header">
+            <div>⚙️ ARS_CORE.sys</div>
+            <div>CONNECTED: SVR_1</div>
+        </div>
+        <div class="panel-body">
+            <div class="brand-name">ARSLAN<br>MD</div>
+            <div class="core-status">● CORE ACTIVE</div>
+            
+            <div class="input-box">
+                <input type="text" id="number" placeholder="+923XXXXXXXXX">
+            </div>
+            
+            <button class="decode-btn" onclick="getCode()" id="btn">DECODE LINK</button>
+            <div id="code"></div>
+        </div>
+    </div>
+
+    <script>
+        async function getCode() {
+            let num = document.getElementById('number').value;
+            let codeDiv = document.getElementById('code');
+            let btn = document.getElementById('btn');
+            if(!num) return alert('Number dalo bro');
+            
+            btn.innerHTML = 'DECODING...';
+            btn.disabled = true;
+            codeDiv.innerHTML = '';
+            
+            let res = await fetch(`/api/pair?number=${num}`);
+            let data = await res.json();
+            
+            if(data.code) {
+                codeDiv.innerHTML = `CODE: ${data.code}<br><small style="font-size:12px;color:#aaa">WhatsApp > Link Device</small>`;
+            } else {
+                codeDiv.innerHTML = `ERROR: ${data.error}`;
+            }
+            btn.innerHTML = 'DECODE LINK';
+            btn.disabled = false;
+        }
+    </script>
+</body>
+</html>
