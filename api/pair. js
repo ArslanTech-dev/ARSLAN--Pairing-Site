@@ -1,0 +1,26 @@
+const { default: makeWASocket, useMultiFileAuthState, delay } = require('@whiskeysockets/baileys');
+
+export default async function handler(req, res) {
+    const { number } = req.query;
+    if (!number) return res.status(400).json({ error: "Number required" });
+
+    const sessionDir = `/tmp/${number}`;
+    const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
+    
+    const sock = makeWASocket({
+        auth: state,
+        printQRCode: false,
+        browser: ["ARS-MD-PRO", "Chrome", "1.0.0"]
+    });
+
+    sock.ev.on('creds.update', saveCreds);
+
+    try {
+        await delay(2000);
+        const code = await sock.requestPairingCode(number);
+        await sock.logout();
+        return res.status(200).json({ code });
+    } catch (e) {
+        return res.status(500).json({ error: e.message });
+    }
+}
