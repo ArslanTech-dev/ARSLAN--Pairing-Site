@@ -1,0 +1,7 @@
+{
+  "name": "ars-pairing-web",
+  "version": "1.0.0",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.12"
+  }
+}
